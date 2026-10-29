@@ -1,73 +1,111 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.cabecalho{
-    padding: 15px 25px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(rgb(89, 0, 255) rgb(19, 0, 128) blue / alpha);
-}
-
-.cartao{
-    width: 260px;
-    height: 200px;
-}
-
-.cartao-imagem{
-    width: 100%;
-}
-
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: rgb(0, 217, 255);
+    font-family: Arial, sans-serif;
 }
-main{
- flex: 1;
- display: flex;
- flex-direction: column;
- align-items: center;
 
+.cabecalho {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(89, 0, 255);
 }
-.cabecalho-link{
+
+.cabecalho-link {
     color: black;
     text-decoration: none;
 }
 
-h1{
+h1 {
     color: rgb(2, 1, 1);
     font-size: 24px;
+    text-align: center;
 }
 
-footer{
-    background-color: rgb(0, 0, 0);
-    padding: 15px 25px;
-    color: rgb(0, 0, 0);
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    gap: 25px;
 }
-.cartao-interno{
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cartao {
+    width: 260px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.cartao-interno {
     position: relative;
+    width: 100%;
+    height: 100%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.cartao:hover .cartao-interno{
+.cartao:hover .cartao-interno {
     transform: rotateY(180deg);
 }
 
-.cartao-frente, .cartao-verso{
-    position:absolute;
+.cartao-frente,
+.cartao-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(red, green, blue, alpha);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     backface-visibility: hidden;
+    overflow: hidden;
+    background-color: white;
 }
-,.cartao-verso{
-    transform: rotateY(180deg);
-}
-section{
+
+.cartao-frente {
     display: flex;
-    gap: 16px
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartao-verso {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartao-imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.cartao-frente p,
+.cartao-verso p {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    color: white;
+    text-align: center;
 }
